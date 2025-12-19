@@ -1,30 +1,13 @@
 import type { Metadata } from "next";
+import { Inter, Cinzel } from "next/font/google";
 import "./globals.css";
-import { fontGothic, fontTerminal } from "./fonts";
+
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const cinzel = Cinzel({ subsets: ["latin"], variable: "--font-cinzel" });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://hellcoin.fun"),
-  title: "HELLCOIN ($666) - Born in the Red",
-  description: "The official currency of eternal regret.",
-  openGraph: {
-    title: "HELLCOIN ($666) - Born in the Red",
-    description: "The official currency of eternal regret.",
-    type: "website",
-    images: [
-      {
-        url: "/SOCIAL-BANNER.png",
-        width: 1500,
-        height: 500,
-        alt: "HELLCOIN ($666)",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "HELLCOIN ($666) - Born in the Red",
-    description: "The official currency of eternal regret.",
-    images: ["/SOCIAL-BANNER.png"],
-  },
+  title: "HELLCOIN | The Only Honest Crypto",
+  description: "Abandon hope, acquire $666. The most brutally honest memecoin in existence.",
 };
 
 export default function RootLayout({
@@ -33,12 +16,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${fontGothic.variable} ${fontTerminal.variable} scroll-smooth`}>
-      {/* Default body font becomes Crimson (via font-terminal) so no silent fallback to sans */}
-      <body className="bg-hell-black font-terminal">
-        <a href="#main" className="skip-link">
-          Skip to content
-        </a>
+    <html lang="en">
+      <body className={`${inter.variable} ${cinzel.variable} font-sans bg-hell-dark text-white`}>
         {children}
       </body>
     </html>
